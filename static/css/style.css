@@ -191,7 +191,7 @@ blockquote blockquote blockquote blockquote {
 .article-title-bottom {
   margin-top: 5px;
 }
-.about .article-title-bottom {
+.profile .article-title-bottom {
   margin-bottom: 40px;
 }
 .article .article-meta {
@@ -586,5 +586,5 @@ blockquote blockquote blockquote blockquote {
     width: 100%;
     box-sizing: border-box;
   }
-  
+
 }
