@@ -1,17 +1,18 @@
+<!-- 初回のみJs読み込み //-->
 {{- if not ($.Page.Scratch.Get "gallery") }}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.min.js"></script>
-<script>
-	$(window).on('load resize', function(){
-		itemWidth = $('.item').width();
-		$('.item').height(itemWidth);
-		itemMargin = $('.item').outerWidth(true)-$('.item').height();
-		$('.item').css('margin-bottom', itemMargin*2+'px')
-	});
-</script>
-{{ else }}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.0/jquery.fancybox.min.js"></script>
+	<script>
+		$(window).on('load resize', function(){
+			itemWidth = $('.item').width(); //サムネイル横幅取得
+			$('.item').height(itemWidth); //サムネイルを正方形にする
+			itemMargin = $('.item').outerWidth(true)-$('.item').height(); //margin取得
+			$('.item').css('margin-bottom', itemMargin*2+'px'); //margin-bottom定義
+		});
+	</script>
 {{ end }}
 {{- $.Page.Scratch.Add "gallery" 1 }}
+
 <style>
 	div.item {
 		width:49.5%;
@@ -34,13 +35,7 @@
 </style>
 
 <div class="gallery">
-	{{ $path := print "/static" (.Get "dir") "/thumbs" }}
-  {{ $srcPath := print "" (.Get "dir") }}
-  {{ $thumbPath := print (.Get "dir") "/thumbs" }}
-  {{ range (readDir $path) }}
-  {{ $src := print $srcPath "/" .Name }}
-  {{ $thumbsrc := print $thumbPath "/" .Name }}
-  <div class="item" style="background-image:url({{$thumbsrc}});"><a data-fancybox="gallery" href="{{$src}}"> </a></div>
-  {{ end }}
+	{{ $path := print "/static" (.Get "dir") "/thumbs" }}{{ $imgPath := .Get "dir" }}{{ $thumbPath := print (.Get "dir") "/thumbs" }}{{ range (readDir $path) }}{{ $imgsrcPath := print $imgPath "/" .Name }}{{ $thumbsrcPath := print $thumbPath "/" .Name }}<div class="item" style="background-image:url({{$thumbsrcPath}});"><a data-fancybox="gallery" href="{{$imgsrcPath}}" title="{{ .Name }}"></a></div>
+	{{ end }}
 </div>
 <p><br clear="all" /></p>
