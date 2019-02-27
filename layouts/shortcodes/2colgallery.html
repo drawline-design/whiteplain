@@ -34,8 +34,8 @@
 	}
 </style>
 
-<div class="gallery">aaaaaaa
+<div class="gallery">
 	{{ $path := print "/static" (.Get "dir") "/thumbs" }}{{ $imgPath := .Get "dir" }}{{ $thumbPath := print (.Get "dir") "/thumbs" }}{{ range (readDir $path) }}{{ $imgsrcPath := print $imgPath "/" .Name }}{{ $thumbsrcPath := print $thumbPath "/" .Name }}<div class="item" style="background-image:url({{$thumbsrcPath}}?nf_resize=smartcrop&w=450&h=450);"><a data-fancybox="gallery" href="{{$imgsrcPath}}" title="{{ .Name }}"></a></div>
-	\{{ end }}
+	{{ end }}
 </div>
 <p><br clear="all" /></p>
