@@ -2,14 +2,13 @@ html {
   font-size: 1em;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
-  color: #444444;
-  overflow-y: scroll;
-  line-height: 1.2;
+  font-family: "Sawarabi Gothic", sans-serif;
+  color: #444;
+  line-height: 2;
 }
 a {
-  color: #2060d0;
-  text-decoration: none;
+  color: #333;
+  text-decoration: underline;
 }
 a:hover, a:active {
   color: #5090ff;
@@ -21,11 +20,9 @@ hr {
   margin: 0;
 }
 pre, code {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
-  background-color: #F0F3F3;
 }
 pre {
-  padding: 4px 8px;
+  border: 1px solid #F0F3F3;
 }
 :not(pre) > code {
   padding: 2px 4px;
@@ -33,7 +30,6 @@ pre {
 }
 blockquote {
   margin: 0;
-  margin-left: 40px;
   border-left: solid 4px #b4c6c7;
   padding-left: 8px;
   font-style: normal;
@@ -405,7 +401,7 @@ blockquote blockquote blockquote blockquote {
 .site-footer .copyright {
   -webkit-flex-grow: 0;
   flex-grow: 0;
-  margin-right: 10px;
+  margin: auto;
 }
 .site-footer-items {
   -webkit-flex-grow: 0;
@@ -419,6 +415,7 @@ blockquote blockquote blockquote blockquote {
   align-items: baseline;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+  text-align: center;
 }
 .site-footer-items li {
   font-size: 0.8rem;
